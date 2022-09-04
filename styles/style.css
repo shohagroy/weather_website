@@ -1,0 +1,140 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('/img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+main{
+    height: 90vh;
+
+}
+
+
+.search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+
+}
+
+#search-fild{
+    height: 3rem;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid white;
+    font-size: 22px;
+    top: 0;
+    left: 0;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.23);
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#search-btn{
+    background-color: red;
+    color: white;
+    position: absolute;
+    right: 10%;
+    height: 45px;
+    font-size: 20px;
+
+    
+}
+
+.loading-spinar img{
+    position: absolute;
+    top: 15%;
+    width: 40px;
+}
+
+.result-container{
+    /* background-color: white; */
+    margin: auto;
+    margin-top: 5%;
+    padding: 20px;
+    font-size: 22px;
+    color: white;
+
+    
+}
+
+.item-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.096);
+    border-radius: 20px;
+
+
+
+}
+
+.weather-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 10%; */
+}
+.weather-icon i{
+    padding: 5px;
+    margin: 5px;
+}
+
+.weather-text{
+    display: flex;
+    flex-direction: column;
+    /* width: 15%; */
+}
+
+.weather-text span{
+    padding: 5px;
+    /* margin: 5px; */
+}
+
+
+
+.weather-result{
+    display: flex;
+    flex-direction: column;
+    /* width: 15%; */
+    margin-left: 20px;
+}
+
+.weather-result span{
+    padding: 5px;
+    /* margin: 5px; */
+}
+
+
+footer {
+    height: 10vh;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .followers {
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+    transition: all 0.4s;
+  }
+  .followers:hover {
+    font-size: 50px;
+    color: red;
+  }
