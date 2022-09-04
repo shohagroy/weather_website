@@ -5,7 +5,7 @@ const loadingSpiner = document.querySelector('.loading-spinar')
 
 // get weather API function 
 const getWeather = (city)=>{
-loadingSpiner.classList.remove('d-none')
+    loadingSpiner.classList.remove('d-none')
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2aa7f6214d3f8fba27ed27160127d965&units=metric`
 
     fetch(url)
@@ -13,7 +13,30 @@ loadingSpiner.classList.remove('d-none')
     .then(data => weatherGet(data))
 
     const weatherGet = (data) =>{
-        console.log(data)
+        
+        const inputFild = document.getElementById('search-fild')
+        const inputFildValue = inputFild.value;
+
+        if(data.cod == "404"){
+            const resultContainer = document.querySelector('.result-container')
+            const errorResult = document.createElement('div');
+
+            resultContainer.textContent = '';    
+
+            errorResult.innerHTML = `
+            <h2 class="text-dark text-center p-4 bg-light rounded-4">
+                Your Search <span class="text-danger">"${inputFildValue}"</span> is Not a
+                City Name!
+            </h2>
+            `
+            resultContainer.appendChild(errorResult)
+
+            loadingSpiner.classList.add('d-none')
+
+        loadingSpiner.classList.add('d-none')
+        inputFild.value = ""
+
+        }
 
         displaysetById('city', data.name)
         displaysetById('country', data.sys.country)
@@ -31,20 +54,38 @@ loadingSpiner.classList.remove('d-none')
 
         displaysetById('sunrice', sunrice)
         displaysetById('sunset', sunset)
-        }
 
+        inputFild.value = "";
+    }
 
         // get and set function 
         const displaysetById = (id, set)=>{
         document.getElementById(id).innerText = set;
         loadingSpiner.classList.add('d-none')
-
         }
 }
 
+// enterkey press function 
+document.getElementById('search-fild').addEventListener('keypress', (event) =>{
 
-// getWeather('dhaka')
+    const inputFild = document.getElementById('search-fild')
+    const inputFildValue = inputFild.value;
 
-document.getElementById('search-btn').addEventListener('click', ()=>{
-    console.log('button click')
+    if(event.key == "Enter"){
+        getWeather(inputFildValue);
+    
+        // inputFild.value = "";
+    }
 })
+
+
+// button click function 
+document.getElementById('search-btn').addEventListener('click', ()=>{
+    getWeather(inputFildValue);
+})
+
+getWeather('dhaka')
+
+
+
+
