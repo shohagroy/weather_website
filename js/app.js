@@ -81,6 +81,8 @@ document.getElementById('search-fild').addEventListener('keypress', (event) =>{
 
 // button click function 
 document.getElementById('search-btn').addEventListener('click', ()=>{
+    const inputFild = document.getElementById('search-fild')
+    const inputFildValue = inputFild.value;
     getWeather(inputFildValue);
 })
 
